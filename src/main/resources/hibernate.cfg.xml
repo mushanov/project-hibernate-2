@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- P6Spy подменяет стандартный MySQL-драйвер и логирует все SQL -->
+        <property name="hibernate.connection.driver_class">
+            com.p6spy.engine.spy.P6SpyDriver
+        </property>
+
+        <!-- В URL пишем p6spy:mysql вместо просто mysql -->
+        <property name="hibernate.connection.url">
+            jdbc:p6spy:mysql://localhost:3306/movie?useSSL=false&amp;serverTimezone=UTC
+        </property>
+
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">YOUR_PASSWORD)</property>  <!-- YOUR_PASSWORD -->
+
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+
+        <!-- validate — Hibernate проверяет соответствие Entity таблицам,
+             но ничего не меняет в БД. Если маппинг неверный — упадёт при старте. -->
+        <property name="hibernate.hbm2ddl.auto">validate</property>
+
+        <!-- Регистрируем все Entity-классы -->
+        <mapping class="com.javarush.module4.entity.Actor"/>
+        <mapping class="com.javarush.module4.entity.Address"/>
+        <mapping class="com.javarush.module4.entity.Category"/>
+        <mapping class="com.javarush.module4.entity.City"/>
+        <mapping class="com.javarush.module4.entity.Country"/>
+        <mapping class="com.javarush.module4.entity.Customer"/>
+        <mapping class="com.javarush.module4.entity.Film"/>
+        <mapping class="com.javarush.module4.entity.FilmText"/>
+        <mapping class="com.javarush.module4.entity.Inventory"/>
+        <mapping class="com.javarush.module4.entity.Language"/>
+        <mapping class="com.javarush.module4.entity.Payment"/>
+        <mapping class="com.javarush.module4.entity.Rental"/>
+        <mapping class="com.javarush.module4.entity.Staff"/>
+        <mapping class="com.javarush.module4.entity.Store"/>
+    </session-factory>
+</hibernate-configuration>
