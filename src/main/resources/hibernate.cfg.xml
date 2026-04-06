@@ -15,7 +15,7 @@
         </property>
 
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">YOUR_PASSWORD)</property>  <!-- YOUR_PASSWORD -->
+        <property name="hibernate.connection.password">YOUR_PASSWORD</property>  <!-- YOUR_PASSWORD -->
 
         <property name="hibernate.dialect">
             org.hibernate.dialect.MySQLDialect
